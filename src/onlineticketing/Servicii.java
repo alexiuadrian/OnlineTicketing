@@ -87,14 +87,25 @@ public class Servicii {
 
                 switch (this.choiceSort) {
                     case 1: {
-
+                        Collections.sort(Events, new Event.sortByName());
+                        showAllEvents();
+                        break;
+                    }
+                    case 2: {
+                        Collections.sort(Events, new Event.sortByDate());
+                        showAllEvents();
+                        break;
+                    }
+                    case 3: {
+                        Collections.sort(Events, new Event.sortByPrice());
+                        showAllEvents();
+                        break;
                     }
                     default: {
                         System.out.println("Optiune invalida! Incercati din nou!");
                         break;
                     }
                 }
-
                 break;
             }
             default: {

@@ -17,7 +17,7 @@ public class Event {
     protected Location location;
     protected double price;
 
-    class sortByDate implements Comparator<Event>
+    static class sortByDate implements Comparator<Event>
     {
         public int compare(Event a, Event b)
         {
@@ -36,7 +36,46 @@ public class Event {
             else if(a.getMinutes() - b.getMinutes() != 0) {
                 return a.getMinutes() - b.getMinutes();
             }
-            return a.getMinutes() - b.getMinutes();
+            return 0;
+        }
+    }
+
+    static class sortByName implements Comparator<Event>
+    {
+        public int compare(Event a, Event b)
+        {
+            int n1 = a.getName().length();
+            int n2 = b.getName().length();
+            int min = Math.min(n1, n2);
+
+            for(int i = 0; i < min; i++) {
+                int c1 = (int) a.getName().charAt(i);
+                int c2 = (int) b.getName().charAt(i);
+
+                if(c1 != c2) {
+                    return c1 - c2;
+                }
+            }
+
+            if(n1 != n2) {
+                return n1 - n2;
+            }
+
+            return 0;
+        }
+    }
+
+    static class sortByPrice implements Comparator<Event>
+    {
+        public int compare(Event a, Event b)
+        {
+            if((a.getPrice() - b.getPrice()) < 0) {
+                return -1;
+            }
+            else if((a.getPrice() - b.getPrice()) > 0) {
+                return 1;
+            }
+            return 0;
         }
     }
 
