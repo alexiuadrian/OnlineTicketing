@@ -6,8 +6,6 @@ import java.util.Date;
 
 public class Event {
 
-
-
     protected String name;
     protected int day;
     protected int month;
@@ -77,41 +75,6 @@ public class Event {
             }
             return 0;
         }
-    }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-
-        if(!((Event) obj).getName().equals(this.name)) {
-            return false;
-        }
-
-        if(((Event) obj).getDay() != this.day) {
-            return false;
-        }
-
-        if(((Event) obj).getMonth() != this.month) {
-            return false;
-        }
-
-        if(((Event) obj).getYear() != this.year) {
-            return false;
-        }
-
-        if(((Event) obj).getHour() != this.hour) {
-            return false;
-        }
-
-        if(((Event) obj).getMinutes() != this.minutes) {
-            return false;
-        }
-
-        return true;
     }
 
     public Event() {
