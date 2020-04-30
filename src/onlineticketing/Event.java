@@ -92,6 +92,21 @@ public class Event {
         this.price = price;
     }
 
+    public Event(String line) {
+        String []values = line.split(",");
+
+        if(values.length == 12) {
+            this.name = values[0];
+            this.day = Integer.parseInt(values[1]);
+            this.month = Integer.parseInt(values[2]);
+            this.year = Integer.parseInt(values[3]);
+            this.hour = Integer.parseInt(values[4]);
+            this.minutes = Integer.parseInt(values[5]);
+            this.location = new Location(values[6], values[7], values[8], Integer.parseInt(values[9]), Integer.parseInt(values[10]));
+            this.price = Double.parseDouble(values[11]);
+        }
+    }
+
     public String getName() {
         return name;
     }
@@ -169,4 +184,23 @@ public class Event {
         System.out.println("Price: " + this.price);
     }
 
+    @Override
+    public String toString() {
+        /*
+        return "Event{" +
+                "name='" + name + '\'' +
+                ", day=" + day +
+                ", month=" + month +
+                ", year=" + year +
+                ", hour=" + hour +
+                ", minutes=" + minutes +
+                ", location=" + location +
+                ", price=" + price +
+                '}';
+        */
+
+        return (location.toString() + name + "," + Integer.toString(day) + "," + Integer.toString(month) + "," + Integer.toString(year) + "," +
+                Integer.toString(hour) + "," + Integer.toString(minutes) + "," + Double.toString(price));
+
+    }
 }

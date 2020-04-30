@@ -13,6 +13,21 @@ public class Client {
         this.age = age;
     }
 
+    public Client() {
+
+    }
+
+    public Client(String line) {
+        String []values = line.split(",");
+
+        if(values.length == 4) {
+            this.firstName = values[0];
+            this.lastName = values[1];
+            this.gender = values[2];
+            this.age = Integer.parseInt(values[3]);
+        }
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -52,4 +67,18 @@ public class Client {
         System.out.println("Age: " + this.age);
     }
 
+    @Override
+    public String toString() {
+        /*
+        return "Client{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", gender='" + gender + '\'' +
+                ", age=" + age +
+                '}';
+         */
+
+        return (firstName + "," + lastName + "," + gender + "," + age);
+
+    }
 }

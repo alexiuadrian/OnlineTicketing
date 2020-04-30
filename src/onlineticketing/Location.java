@@ -7,12 +7,28 @@ public class Location {
     private int number;
     private int zipCode;
 
+    public Location() {
+
+    }
+
     public Location(String venue, String city, String street, int number, int zipCode) {
         this.venue = venue;
         this.city = city;
         this.street = street;
         this.number = number;
         this.zipCode = zipCode;
+    }
+
+    public Location(String line) {
+        String []values = line.split(",");
+
+        if(values.length == 5) {
+            this.venue = values[0];
+            this.city = values[1];
+            this.street = values[2];
+            this.number = Integer.parseInt(values[3]);
+            this.zipCode = Integer.parseInt(values[4]);
+        }
     }
 
     public String getVenue() {
@@ -63,4 +79,19 @@ public class Location {
         System.out.println("Zip Code: " + this.zipCode);
     }
 
+    @Override
+    public String toString() {
+        /*
+        return "Location{" +
+                "venue='" + venue + '\'' +
+                ", city='" + city + '\'' +
+                ", street='" + street + '\'' +
+                ", number=" + number +
+                ", zipCode=" + zipCode +
+                '}';
+         */
+
+        return (venue + "," + city + "," + street + "," + Integer.toString(number) + "," + Integer.toString(zipCode) + ",");
+
+    }
 }

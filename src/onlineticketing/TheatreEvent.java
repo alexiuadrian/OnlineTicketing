@@ -85,6 +85,37 @@ public class TheatreEvent extends Event {
         else {
             System.out.println("Group ticket: NO");
         }
+    }
+
+    @Override
+    public String toString() {
+        /*
+        return "TheatreEvent{" +
+                "genre='" + genre + '\'' +
+                ", ageRestriction=" + ageRestriction +
+                ", hall=" + hall +
+                ", row=" + row +
+                ", seat=" + seat +
+                ", groupTicket=" + groupTicket +
+                ", name='" + name + '\'' +
+                ", day=" + day +
+                ", month=" + month +
+                ", year=" + year +
+                ", hour=" + hour +
+                ", minutes=" + minutes +
+                ", location=" + location +
+                ", price=" + price +
+                '}';
+
+        return (location.toString() + ", " + name + ", " + Integer.toString(day) + ", " + Integer.toString(month) + ", " + Integer.toString(year) + ", " +
+                Integer.toString(hour) + ", " + Integer.toString(minutes) + ", " + Double.toString(price) + ", " +
+                genre + ", " + Integer.toString(ageRestriction) + ", " + Integer.toString(hall) + ", " + Integer.toString(row) + ", " +
+                Integer.toString(seat) + ", " + Boolean.toString(groupTicket));
+
+         */
+
+        return (super.toString() + "," + genre + "," + Integer.toString(ageRestriction) + ","
+                + Integer.toString(hall) + "," + Integer.toString(row) + "," + Integer.toString(seat) + "," + Boolean.toString(groupTicket));
 
     }
 }

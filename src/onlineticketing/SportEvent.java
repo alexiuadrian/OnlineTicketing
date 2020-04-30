@@ -80,4 +80,36 @@ public class SportEvent extends Event {
         System.out.println("Row: " + this.row);
         System.out.println("Seat: " + this.seat);
     }
+
+    @Override
+    public String toString() {
+        /*
+        return "SportEvent{" +
+                "sport='" + sport + '\'' +
+                ", team1='" + team1 + '\'' +
+                ", team2='" + team2 + '\'' +
+                ", block=" + block +
+                ", row=" + row +
+                ", seat=" + seat +
+                ", name='" + name + '\'' +
+                ", day=" + day +
+                ", month=" + month +
+                ", year=" + year +
+                ", hour=" + hour +
+                ", minutes=" + minutes +
+                ", location=" + location +
+                ", price=" + price +
+                '}';
+
+
+        return (location.toString() + ", " + name + ", " + Integer.toString(day) + ", " + Integer.toString(month) + ", " + Integer.toString(year) + ", " +
+                Integer.toString(hour) + ", " + Integer.toString(minutes) + ", " + Double.toString(price))
+                + ", " + sport + ", " + team1 + ", " + team2 + ", " + Integer.toString(block) + ", " + Integer.toString(row) + ", " +
+                Integer.toString(seat);
+        */
+
+        return (super.toString() + "," + sport + "," + team1 + "," + team2 + "," + Integer.toString(block)
+                + "," + Integer.toString(row) + "," + Integer.toString(seat));
+
+    }
 }

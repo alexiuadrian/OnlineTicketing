@@ -69,4 +69,35 @@ public class MovieEvent extends Event {
         System.out.println("Row: " + this.row);
         System.out.println("Seat: " + this.seat);
     }
+
+    @Override
+    public String toString() {
+        /*
+        return "MovieEvent{" +
+                "genre='" + genre + '\'' +
+                ", ageRestriction=" + ageRestriction +
+                ", hall=" + hall +
+                ", row=" + row +
+                ", seat=" + seat +
+                ", name='" + name + '\'' +
+                ", day=" + day +
+                ", month=" + month +
+                ", year=" + year +
+                ", hour=" + hour +
+                ", minutes=" + minutes +
+                ", location=" + location +
+                ", price=" + price +
+                '}';
+
+
+        return (location.toString() + ", " + name + ", " + Integer.toString(day) + ", " + Integer.toString(month) + ", " + Integer.toString(year) + ", " +
+                Integer.toString(hour) + ", " + Integer.toString(minutes) + ", " + Double.toString(price) + ", " +
+                genre + ", " + Integer.toString(ageRestriction) + ", " + Integer.toString(hall) + ", " + Integer.toString(row) + ", " +
+                Integer.toString(seat));
+         */
+
+        return (super.toString() + "," + genre + "," + Integer.toString(ageRestriction) + "," +
+                Integer.toString(hall) + "," + Integer.toString(row) + "," + Integer.toString(seat));
+
+    }
 }

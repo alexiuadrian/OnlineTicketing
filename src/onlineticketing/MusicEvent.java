@@ -63,6 +63,39 @@ public class MusicEvent extends Event {
         else {
             System.out.println("Food courts: No");
         }
+    }
+
+    @Override
+    public String toString() {
+        /*
+        return "MusicEvent{" +
+                "artists=" + artists +
+                ", genre='" + genre + '\'' +
+                ", foodCourts=" + foodCourts +
+                ", name='" + name + '\'' +
+                ", day=" + day +
+                ", month=" + month +
+                ", year=" + year +
+                ", hour=" + hour +
+                ", minutes=" + minutes +
+                ", location=" + location +
+                ", price=" + price +
+                '}';
+
+        String x = (location.toString() + ", " + name + ", " + Integer.toString(day) + ", " + Integer.toString(month) + ", " + Integer.toString(year) + ", " +
+                Integer.toString(hour) + ", " + Integer.toString(minutes) + ", " + Double.toString(price) + ", ");
+
+         */
+
+        String x = super.toString() + ", ";
+
+        for(String s : artists) {
+            x += s + ", ";
+        }
+
+        x += genre + ", " + Boolean.toString(foodCourts);
+
+        return x;
 
     }
 }

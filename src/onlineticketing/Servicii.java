@@ -1,28 +1,65 @@
 package onlineticketing;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Servicii {
 
-    Set<Ticket> Tickets;
+    List<Ticket> Tickets;
     List<Event> Events;
+    List<Ticket> sportTickets;
+    List<Ticket> movieTickets;
+    List<Ticket> musicTickets;
+    List<Ticket> theatreTickets;
+    List<Log> logs;
     private static int nrOfTickets = 0;
     private static int choice = 0;
     private static int choiceSort = 0;
     private static boolean exit = false;
 
     public Servicii() {
-        Tickets = new HashSet<>();
+        Tickets = new ArrayList<>();
         Events = new ArrayList<>();
-
+        sportTickets = new ArrayList<>();
+        movieTickets = new ArrayList<>();
+        musicTickets = new ArrayList<>();
+        theatreTickets = new ArrayList<>();
     }
 
-    public void setTicket(Client client, Event event) {
+    public void setTicket(Client client, Event event, int typeOfEvent) {
         try {
-            Ticket t = new Ticket(event, client);
+            Ticket t = new Ticket(event, client, typeOfEvent);
             this.nrOfTickets++;
             t.setTicketId(this.nrOfTickets);
-            Tickets.add(t);
+            String logText = "A fost adaugat un eveniment de tip: ";
+            switch (typeOfEvent) {
+                case 1: {
+                    sportTickets.add(t);
+                    logText += "Sport";
+                    break;
+                }
+                case 2: {
+                    movieTickets.add(t);
+                    logText += "Film";
+                    break;
+                }
+                case 3: {
+                    musicTickets.add(t);
+                    logText += "Muzica/Concert";
+                    break;
+                }
+                case 4: {
+                    theatreTickets.add(t);
+                    logText += "Teatru";
+                    break;
+                }
+            }
+
+            Log log = new Log();
+            log.setText(logText);
+            logs.add(log);
+            concatLists();
         }
         catch(Exception e) {
             System.out.println(e.getMessage());
@@ -44,6 +81,17 @@ public class Servicii {
 
     public static void setChoice(int choice) {
         Servicii.choice = choice;
+    }
+
+    public void concatLists() {
+        Tickets = Stream.concat(sportTickets.stream(), movieTickets.stream())
+                .collect(Collectors.toList());
+
+        Tickets = Stream.concat(Tickets.stream(), musicTickets.stream())
+                .collect(Collectors.toList());
+
+        Tickets = Stream.concat(Tickets.stream(), theatreTickets.stream())
+                .collect(Collectors.toList());
     }
 
     public void showMenu() {
@@ -220,7 +268,7 @@ public class Servicii {
 
                 Events.add(event);
 
-                setTicket(client, event);
+                setTicket(client, event, kindOfEvent);
 
                 break;
             }
@@ -310,7 +358,7 @@ public class Servicii {
 
                 Events.add(event);
 
-                setTicket(client, event);
+                setTicket(client, event, kindOfEvent);
 
                 break;
             }
@@ -409,7 +457,7 @@ public class Servicii {
 
                 Events.add(event);
 
-                setTicket(client, event);
+                setTicket(client, event, kindOfEvent);
 
                 break;
             }
@@ -509,7 +557,7 @@ public class Servicii {
 
                 Events.add(event);
 
-                setTicket(client, event);
+                setTicket(client, event, kindOfEvent);
 
                 break;
             }
@@ -543,4 +591,63 @@ public class Servicii {
         }
     }
 
+    public List<Ticket> getTickets() {
+        return Tickets;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        Tickets = tickets;
+    }
+
+    public List<Event> getEvents() {
+        return Events;
+    }
+
+    public void setEvents(List<Event> events) {
+        Events = events;
+    }
+
+    public List<Ticket> getSportTickets() {
+        return sportTickets;
+    }
+
+    public void setSportTickets(List<Ticket> sportTickets) {
+        this.sportTickets = sportTickets;
+    }
+
+    public List<Ticket> getMovieTickets() {
+        return movieTickets;
+    }
+
+    public void setMovieTickets(List<Ticket> movieTickets) {
+        this.movieTickets = movieTickets;
+    }
+
+    public List<Ticket> getMusicTickets() {
+        return musicTickets;
+    }
+
+    public void setMusicTickets(List<Ticket> musicTickets) {
+        this.musicTickets = musicTickets;
+    }
+
+    public List<Ticket> getTheatreTickets() {
+        return theatreTickets;
+    }
+
+    public void setTheatreTickets(List<Ticket> theatreTickets) {
+        this.theatreTickets = theatreTickets;
+    }
+
+    public List<Log> getLogs() {
+        return logs;
+    }
+
+    public void setLogs(List<Log> logs) {
+        this.logs = logs;
+    }
+
+    public void addLog(Log log) {
+        logs.add(log);
+    }
 }
