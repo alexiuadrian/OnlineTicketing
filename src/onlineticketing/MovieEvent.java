@@ -11,7 +11,8 @@ public class MovieEvent extends Event {
     private int row;
     private int seat;
 
-    public MovieEvent(String name, int day, int month, int year, int hour, int minutes, Location location, double price, String genre, int ageRestriction, int hall, int row, int seat) {
+    public MovieEvent(String name, int day, int month, int year, int hour, int minutes, Location location,
+                      double price, String genre, int ageRestriction, int hall, int row, int seat) {
         super(name, day, month, year, hour, minutes, location, price);
         this.genre = genre;
         this.ageRestriction = ageRestriction;

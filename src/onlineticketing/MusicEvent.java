@@ -11,7 +11,8 @@ public class MusicEvent extends Event {
     private String genre;
     private boolean foodCourts;
 
-    public MusicEvent(String name, int day, int month, int year, int hour, int minutes, Location location, double price, List<String> artists, String genre, boolean foodCourts) {
+    public MusicEvent(String name, int day, int month, int year, int hour, int minutes, Location location,
+                      double price, List<String> artists, String genre, boolean foodCourts) {
         super(name, day, month, year, hour, minutes, location, price);
         this.artists = artists;
         this.genre = genre;

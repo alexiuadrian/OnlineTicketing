@@ -1,9 +1,10 @@
 package onlineticketing;
 
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
 
-public class SportEvent extends Event {
+public class SportEvent extends Event implements Serializable {
 
     private String sport;
     private String team1;
@@ -12,8 +13,26 @@ public class SportEvent extends Event {
     private int row;
     private int seat;
 
-    public SportEvent(String name, int day, int month, int year, int hour, int minutes, Location location, double price, String sport, String team1, String team2, int block, int row, int seat) {
+    public SportEvent() {
+
+    }
+
+    public SportEvent(String name, int day, int month, int year, int hour, int minutes, Location location,
+                      double price, String sport, String team1, String team2, int block, int row, int seat) {
         super(name, day, month, year, hour, minutes, location, price);
+        this.sport = sport;
+        this.team1 = team1;
+        this.team2 = team2;
+        this.block = block;
+        this.row = row;
+        this.seat = seat;
+        this.name = this.team1 + " vs " + this.team2;
+    }
+
+    public SportEvent(String id, String name, int day, int month, int year, int hour, int minutes, Location location,
+                      double price, String sport, String team1, String team2, int block, int row, int seat) {
+        super(name, day, month, year, hour, minutes, location, price);
+        this.id = id;
         this.sport = sport;
         this.team1 = team1;
         this.team2 = team2;
@@ -27,7 +46,7 @@ public class SportEvent extends Event {
         return sport;
     }
 
-    public void setSport(String sport) {
+    public void sport(String sport) {
         this.sport = sport;
     }
 
@@ -35,7 +54,7 @@ public class SportEvent extends Event {
         return team1;
     }
 
-    public void setTeam1(String team1) {
+    public void team1(String team1) {
         this.team1 = team1;
     }
 
@@ -43,7 +62,7 @@ public class SportEvent extends Event {
         return team2;
     }
 
-    public void setTeam2(String team2) {
+    public void team2(String team2) {
         this.team2 = team2;
     }
 
@@ -51,7 +70,7 @@ public class SportEvent extends Event {
         return block;
     }
 
-    public void setBlock(int block) {
+    public void block(int block) {
         this.block = block;
     }
 
@@ -59,7 +78,7 @@ public class SportEvent extends Event {
         return row;
     }
 
-    public void setRow(int row) {
+    public void row(int row) {
         this.row = row;
     }
 
@@ -67,7 +86,8 @@ public class SportEvent extends Event {
         return seat;
     }
 
-    public void setSeat(int seat) {
+
+    public void seat(int seat) {
         this.seat = seat;
     }
 
@@ -83,7 +103,6 @@ public class SportEvent extends Event {
 
     @Override
     public String toString() {
-        /*
         return "SportEvent{" +
                 "sport='" + sport + '\'' +
                 ", team1='" + team1 + '\'' +
@@ -99,17 +118,7 @@ public class SportEvent extends Event {
                 ", minutes=" + minutes +
                 ", location=" + location +
                 ", price=" + price +
+                ", id=" + id +
                 '}';
-
-
-        return (location.toString() + ", " + name + ", " + Integer.toString(day) + ", " + Integer.toString(month) + ", " + Integer.toString(year) + ", " +
-                Integer.toString(hour) + ", " + Integer.toString(minutes) + ", " + Double.toString(price))
-                + ", " + sport + ", " + team1 + ", " + team2 + ", " + Integer.toString(block) + ", " + Integer.toString(row) + ", " +
-                Integer.toString(seat);
-        */
-
-        return (super.toString() + "," + sport + "," + team1 + "," + team2 + "," + Integer.toString(block)
-                + "," + Integer.toString(row) + "," + Integer.toString(seat));
-
     }
 }

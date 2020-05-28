@@ -1,6 +1,8 @@
 package onlineticketing;
 
-public class Location {
+import java.io.Serializable;
+
+public class Location implements Serializable {
     private String venue;
     private String city;
     private String street;
@@ -81,7 +83,6 @@ public class Location {
 
     @Override
     public String toString() {
-        /*
         return "Location{" +
                 "venue='" + venue + '\'' +
                 ", city='" + city + '\'' +
@@ -89,9 +90,5 @@ public class Location {
                 ", number=" + number +
                 ", zipCode=" + zipCode +
                 '}';
-         */
-
-        return (venue + "," + city + "," + street + "," + Integer.toString(number) + "," + Integer.toString(zipCode) + ",");
-
     }
 }

@@ -1,10 +1,12 @@
 package onlineticketing;
 
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.UUID;
 
-public class Event {
+public class Event implements Serializable {
 
     protected String name;
     protected int day;
@@ -14,6 +16,7 @@ public class Event {
     protected int minutes;
     protected Location location;
     protected double price;
+    protected String id;
 
     static class sortByDate implements Comparator<Event>
     {
@@ -82,6 +85,7 @@ public class Event {
     }
 
     public Event(String name, int day, int month, int year, int hour, int minutes, Location location, double price) {
+        this.id = UUID.randomUUID().toString();
         this.name = name;
         this.day = day;
         this.month = month;
@@ -111,7 +115,7 @@ public class Event {
         return name;
     }
 
-    public void setName(String name) {
+    public void name(String name) {
         this.name = name;
     }
 
@@ -119,7 +123,7 @@ public class Event {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void location(Location location) {
         this.location = location;
     }
 
@@ -127,7 +131,7 @@ public class Event {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void price(double price) {
         this.price = price;
     }
 
@@ -135,7 +139,7 @@ public class Event {
         return day;
     }
 
-    public void setDay(int day) {
+    public void day(int day) {
         this.day = day;
     }
 
@@ -143,7 +147,7 @@ public class Event {
         return month;
     }
 
-    public void setMonth(int month) {
+    public void month(int month) {
         this.month = month;
     }
 
@@ -151,7 +155,7 @@ public class Event {
         return year;
     }
 
-    public void setYear(int year) {
+    public void year(int year) {
         this.year = year;
     }
 
@@ -159,7 +163,7 @@ public class Event {
         return hour;
     }
 
-    public void setHour(int hour) {
+    public void hour(int hour) {
         this.hour = hour;
     }
 
@@ -167,8 +171,16 @@ public class Event {
         return minutes;
     }
 
-    public void setMinutes(int minutes) {
+    public void minutes(int minutes) {
         this.minutes = minutes;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void id(String id) {
+        this.id = id;
     }
 
     public void showEvent() {
@@ -186,7 +198,6 @@ public class Event {
 
     @Override
     public String toString() {
-        /*
         return "Event{" +
                 "name='" + name + '\'' +
                 ", day=" + day +
@@ -196,11 +207,7 @@ public class Event {
                 ", minutes=" + minutes +
                 ", location=" + location +
                 ", price=" + price +
+                ", id='" + id + '\'' +
                 '}';
-        */
-
-        return (location.toString() + name + "," + Integer.toString(day) + "," + Integer.toString(month) + "," + Integer.toString(year) + "," +
-                Integer.toString(hour) + "," + Integer.toString(minutes) + "," + Double.toString(price));
-
     }
 }

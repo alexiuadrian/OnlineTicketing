@@ -12,7 +12,8 @@ public class TheatreEvent extends Event {
     private int seat;
     private boolean groupTicket;
 
-    public TheatreEvent(String name, int day, int month, int year, int hour, int minutes, Location location, double price, String genre, int ageRestriction, int hall, int row, int seat, boolean groupTicket) {
+    public TheatreEvent(String name, int day, int month, int year, int hour, int minutes, Location location,
+                        double price, String genre, int ageRestriction, int hall, int row, int seat, boolean groupTicket) {
         super(name, day, month, year, hour, minutes, location, price);
         this.genre = genre;
         this.ageRestriction = ageRestriction;
