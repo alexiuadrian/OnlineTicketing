@@ -78,10 +78,15 @@ public class MyClient {
                             }
                             break;
                         case "read":
-                            List<SportEvent> sportEvents = proxy.readSportEvent();
+                            switch(arguments[1]) {
+                                case "Sport": {
+                                    List<SportEvent> sportEvents = proxy.readSportEvent();
 
-                            for(SportEvent sportEvent : sportEvents) {
-                                System.out.println(sportEvent.toString());
+                                    for(SportEvent sportEvent : sportEvents) {
+                                        System.out.println(sportEvent.toString());
+                                    }
+                                    break;
+                                }
                             }
 
                             break;
