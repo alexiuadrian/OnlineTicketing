@@ -1,15 +1,25 @@
 package onlineticketing;
 
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class MusicEvent extends Event {
+public class MusicEvent extends Event implements Serializable {
 
     private List<String> artists;
     private String genre;
     private boolean foodCourts;
+
+    public MusicEvent(String id, String name, int day, int month, int year, int hour, int minutes, Location location,
+                      double price, List<String> artists, String genre, boolean foodCourts) {
+        super(name, day, month, year, hour, minutes, location, price);
+        this.id = id;
+        this.artists = artists;
+        this.genre = genre;
+        this.foodCourts = foodCourts;
+    }
 
     public MusicEvent(String name, int day, int month, int year, int hour, int minutes, Location location,
                       double price, List<String> artists, String genre, boolean foodCourts) {
@@ -68,7 +78,6 @@ public class MusicEvent extends Event {
 
     @Override
     public String toString() {
-        /*
         return "MusicEvent{" +
                 "artists=" + artists +
                 ", genre='" + genre + '\'' +
@@ -81,22 +90,7 @@ public class MusicEvent extends Event {
                 ", minutes=" + minutes +
                 ", location=" + location +
                 ", price=" + price +
+                ", id='" + id + '\'' +
                 '}';
-
-        String x = (location.toString() + ", " + name + ", " + Integer.toString(day) + ", " + Integer.toString(month) + ", " + Integer.toString(year) + ", " +
-                Integer.toString(hour) + ", " + Integer.toString(minutes) + ", " + Double.toString(price) + ", ");
-
-         */
-
-        String x = super.toString() + ", ";
-
-        for(String s : artists) {
-            x += s + ", ";
-        }
-
-        x += genre + ", " + Boolean.toString(foodCourts);
-
-        return x;
-
     }
 }

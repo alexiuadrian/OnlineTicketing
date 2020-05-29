@@ -1,9 +1,10 @@
 package onlineticketing;
 
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
 
-public class TheatreEvent extends Event {
+public class TheatreEvent extends Event  implements Serializable {
 
     private String genre;
     private int ageRestriction;
@@ -11,6 +12,18 @@ public class TheatreEvent extends Event {
     private int row;
     private int seat;
     private boolean groupTicket;
+
+    public TheatreEvent(String id, String name, int day, int month, int year, int hour, int minutes, Location location,
+                        double price, String genre, int ageRestriction, int hall, int row, int seat, boolean groupTicket) {
+        super(name, day, month, year, hour, minutes, location, price);
+        this.id = id;
+        this.genre = genre;
+        this.ageRestriction = ageRestriction;
+        this.hall = hall;
+        this.row = row;
+        this.seat = seat;
+        this.groupTicket = groupTicket;
+    }
 
     public TheatreEvent(String name, int day, int month, int year, int hour, int minutes, Location location,
                         double price, String genre, int ageRestriction, int hall, int row, int seat, boolean groupTicket) {
@@ -90,7 +103,6 @@ public class TheatreEvent extends Event {
 
     @Override
     public String toString() {
-        /*
         return "TheatreEvent{" +
                 "genre='" + genre + '\'' +
                 ", ageRestriction=" + ageRestriction +
@@ -106,17 +118,7 @@ public class TheatreEvent extends Event {
                 ", minutes=" + minutes +
                 ", location=" + location +
                 ", price=" + price +
+                ", id='" + id + '\'' +
                 '}';
-
-        return (location.toString() + ", " + name + ", " + Integer.toString(day) + ", " + Integer.toString(month) + ", " + Integer.toString(year) + ", " +
-                Integer.toString(hour) + ", " + Integer.toString(minutes) + ", " + Double.toString(price) + ", " +
-                genre + ", " + Integer.toString(ageRestriction) + ", " + Integer.toString(hall) + ", " + Integer.toString(row) + ", " +
-                Integer.toString(seat) + ", " + Boolean.toString(groupTicket));
-
-         */
-
-        return (super.toString() + "," + genre + "," + Integer.toString(ageRestriction) + ","
-                + Integer.toString(hall) + "," + Integer.toString(row) + "," + Integer.toString(seat) + "," + Boolean.toString(groupTicket));
-
     }
 }

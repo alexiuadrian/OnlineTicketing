@@ -11,6 +11,17 @@ public class MovieEvent extends Event {
     private int row;
     private int seat;
 
+    public MovieEvent(String id, String name, int day, int month, int year, int hour, int minutes, Location location,
+                      double price, String genre, int ageRestriction, int hall, int row, int seat) {
+        super(name, day, month, year, hour, minutes, location, price);
+        this.id = id;
+        this.genre = genre;
+        this.ageRestriction = ageRestriction;
+        this.hall = hall;
+        this.row = row;
+        this.seat = seat;
+    }
+
     public MovieEvent(String name, int day, int month, int year, int hour, int minutes, Location location,
                       double price, String genre, int ageRestriction, int hall, int row, int seat) {
         super(name, day, month, year, hour, minutes, location, price);
@@ -73,7 +84,6 @@ public class MovieEvent extends Event {
 
     @Override
     public String toString() {
-        /*
         return "MovieEvent{" +
                 "genre='" + genre + '\'' +
                 ", ageRestriction=" + ageRestriction +
@@ -88,17 +98,7 @@ public class MovieEvent extends Event {
                 ", minutes=" + minutes +
                 ", location=" + location +
                 ", price=" + price +
+                ", id='" + id + '\'' +
                 '}';
-
-
-        return (location.toString() + ", " + name + ", " + Integer.toString(day) + ", " + Integer.toString(month) + ", " + Integer.toString(year) + ", " +
-                Integer.toString(hour) + ", " + Integer.toString(minutes) + ", " + Double.toString(price) + ", " +
-                genre + ", " + Integer.toString(ageRestriction) + ", " + Integer.toString(hall) + ", " + Integer.toString(row) + ", " +
-                Integer.toString(seat));
-         */
-
-        return (super.toString() + "," + genre + "," + Integer.toString(ageRestriction) + "," +
-                Integer.toString(hall) + "," + Integer.toString(row) + "," + Integer.toString(seat));
-
     }
 }
