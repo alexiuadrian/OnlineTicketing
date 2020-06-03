@@ -12,6 +12,10 @@ public class MusicEvent extends Event implements Serializable {
     private String genre;
     private boolean foodCourts;
 
+    public MusicEvent() {
+
+    }
+
     public MusicEvent(String id, String name, int day, int month, int year, int hour, int minutes, Location location,
                       double price, List<String> artists, String genre, boolean foodCourts) {
         super(name, day, month, year, hour, minutes, location, price);
@@ -29,11 +33,16 @@ public class MusicEvent extends Event implements Serializable {
         this.foodCourts = foodCourts;
     }
 
+    public MusicEvent name(String name) {
+        this.name = name;
+        return this;
+    }
+
     public List<String> getArtists() {
         return artists;
     }
 
-    public void setArtists(List<String> artists) {
+    public void artists(List<String> artists) {
         this.artists = artists;
     }
 
@@ -41,7 +50,7 @@ public class MusicEvent extends Event implements Serializable {
         return genre;
     }
 
-    public void setGenre(String genre) {
+    public void genre(String genre) {
         this.genre = genre;
     }
 
@@ -49,7 +58,7 @@ public class MusicEvent extends Event implements Serializable {
         return foodCourts;
     }
 
-    public void setFoodCourts(boolean foodCourts) {
+    public void foodCourts(boolean foodCourts) {
         this.foodCourts = foodCourts;
     }
 

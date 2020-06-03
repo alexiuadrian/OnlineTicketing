@@ -42,6 +42,11 @@ public class SportEvent extends Event implements Serializable {
         this.name = this.team1 + " vs " + this.team2;
     }
 
+    public SportEvent name(String name) {
+        this.name = name;
+        return this;
+    }
+
     public String getSport() {
         return sport;
     }
@@ -85,7 +90,6 @@ public class SportEvent extends Event implements Serializable {
     public int getSeat() {
         return seat;
     }
-
 
     public void seat(int seat) {
         this.seat = seat;

@@ -1,9 +1,10 @@
 package onlineticketing;
 
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
 
-public class MovieEvent extends Event {
+public class MovieEvent extends Event implements Serializable {
 
     private String genre;
     private int ageRestriction;
@@ -32,11 +33,20 @@ public class MovieEvent extends Event {
         this.seat = seat;
     }
 
+    public MovieEvent() {
+
+    }
+
+    public MovieEvent name(String name) {
+        this.name = name;
+        return this;
+    }
+
     public String getGenre() {
         return genre;
     }
 
-    public void setGenre(String genre) {
+    public void genre(String genre) {
         this.genre = genre;
     }
 
@@ -44,7 +54,7 @@ public class MovieEvent extends Event {
         return ageRestriction;
     }
 
-    public void setAgeRestriction(int ageRestriction) {
+    public void ageRestriction(int ageRestriction) {
         this.ageRestriction = ageRestriction;
     }
 
@@ -52,7 +62,7 @@ public class MovieEvent extends Event {
         return hall;
     }
 
-    public void setHall(int hall) {
+    public void hall(int hall) {
         this.hall = hall;
     }
 
@@ -60,7 +70,7 @@ public class MovieEvent extends Event {
         return row;
     }
 
-    public void setRow(int row) {
+    public void row(int row) {
         this.row = row;
     }
 
@@ -68,7 +78,7 @@ public class MovieEvent extends Event {
         return seat;
     }
 
-    public void setSeat(int seat) {
+    public void seat(int seat) {
         this.seat = seat;
     }
 
@@ -84,6 +94,7 @@ public class MovieEvent extends Event {
 
     @Override
     public String toString() {
+
         return "MovieEvent{" +
                 "genre='" + genre + '\'' +
                 ", ageRestriction=" + ageRestriction +
@@ -100,5 +111,8 @@ public class MovieEvent extends Event {
                 ", price=" + price +
                 ", id='" + id + '\'' +
                 '}';
+
+
+        //return name;
     }
 }

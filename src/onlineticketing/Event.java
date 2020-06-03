@@ -115,10 +115,11 @@ public class Event implements Serializable {
         return name;
     }
 
+    /*
     public void name(String name) {
         this.name = name;
     }
-
+    */
     public Location getLocation() {
         return location;
     }

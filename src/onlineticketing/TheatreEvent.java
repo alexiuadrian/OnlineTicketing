@@ -13,6 +13,10 @@ public class TheatreEvent extends Event  implements Serializable {
     private int seat;
     private boolean groupTicket;
 
+    public TheatreEvent() {
+
+    }
+
     public TheatreEvent(String id, String name, int day, int month, int year, int hour, int minutes, Location location,
                         double price, String genre, int ageRestriction, int hall, int row, int seat, boolean groupTicket) {
         super(name, day, month, year, hour, minutes, location, price);
@@ -36,11 +40,16 @@ public class TheatreEvent extends Event  implements Serializable {
         this.groupTicket = groupTicket;
     }
 
+    public TheatreEvent name(String name) {
+        this.name = name;
+        return this;
+    }
+
     public String getGenre() {
         return genre;
     }
 
-    public void setGenre(String genre) {
+    public void genre(String genre) {
         this.genre = genre;
     }
 
@@ -48,7 +57,7 @@ public class TheatreEvent extends Event  implements Serializable {
         return ageRestriction;
     }
 
-    public void setAgeRestriction(int ageRestriction) {
+    public void ageRestriction(int ageRestriction) {
         this.ageRestriction = ageRestriction;
     }
 
@@ -56,7 +65,7 @@ public class TheatreEvent extends Event  implements Serializable {
         return hall;
     }
 
-    public void setHall(int hall) {
+    public void hall(int hall) {
         this.hall = hall;
     }
 
@@ -64,7 +73,7 @@ public class TheatreEvent extends Event  implements Serializable {
         return row;
     }
 
-    public void setRow(int row) {
+    public void row(int row) {
         this.row = row;
     }
 
@@ -72,7 +81,7 @@ public class TheatreEvent extends Event  implements Serializable {
         return seat;
     }
 
-    public void setSeat(int seat) {
+    public void seat(int seat) {
         this.seat = seat;
     }
 
@@ -80,7 +89,7 @@ public class TheatreEvent extends Event  implements Serializable {
         return groupTicket;
     }
 
-    public void setGroupTicket(boolean groupTicket) {
+    public void groupTicket(boolean groupTicket) {
         this.groupTicket = groupTicket;
     }
 
